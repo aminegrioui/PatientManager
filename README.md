@@ -6,6 +6,8 @@
 + JDK - 1.8 
 + Hibernate
 + Spring Data JPA
++ Mysql
++ Mysql Workbench
 + Validation
 + Hibernate
 + Junit test
@@ -136,7 +138,9 @@ The app will start running at <http://localhost:8080>.
     "institutionOfInsurance": 260326822,
     "expirationDate": "2026-07-10"
    }
-   
+
+## Retrieve a patient with patient Id
+
 ### Request
 
 `GET /api/v1/{patientId}`
@@ -154,6 +158,8 @@ The app will start running at <http://localhost:8080>.
     "expirationDate": "2026-07-10"
    }
 
+## Retrieve a patient with patient insuranceNumber
+
 ### Request
 
 `GET /api/v1/get/{insuranceNumber}`
@@ -170,7 +176,9 @@ The app will start running at <http://localhost:8080>.
     "institutionOfInsurance": 260326822,
     "expirationDate": "2026-07-10"
    }
-   
+ 
+ ## Delete a patient with patientid
+ 
  ### Request
 
 `DELETE /api/v1/{patientId}`
@@ -181,7 +189,7 @@ The app will start running at <http://localhost:8080>.
     "Deleted": true
     }
 
-## Exceptions validation inputs 
+### Exceptions validation inputs 
 +  Validations:   dateOfBirth (must be in past or present), expirationDate(must be in future) , institutionOfInsurance(checksum)
 
 ## Request
@@ -214,7 +222,7 @@ The app will start running at <http://localhost:8080>.
         }
     ]
     }
- ## Exceptions patient already exist with a given insuranceNumber 
+ ### Exceptions patient already exist with a given insuranceNumber 
  
  ## Request
 `POST /api/v1/postPatient`
@@ -236,6 +244,7 @@ The app will start running at <http://localhost:8080>.
     "details": "uri=/api/v1/postPatient"
    }
 
+## The given patientId is not exist
 ### Request
 
 `GET /api/v1/{patientId}`
