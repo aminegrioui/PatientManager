@@ -189,10 +189,10 @@ The app will start running at <http://localhost:8080>.
     "Deleted": true
     }
 
-### Exceptions validation inputs 
+## Exceptions validation inputs 
 +  Validations:   dateOfBirth (must be in past or present), expirationDate(must be in future) , institutionOfInsurance(checksum)
 
-## Request
+### Request
 `POST /api/v1/postPatient`
 
 ### body 
