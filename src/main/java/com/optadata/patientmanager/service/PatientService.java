@@ -6,7 +6,6 @@ import com.optadata.patientmanager.exception.PatientAlreadyExistsException;
 import com.optadata.patientmanager.exception.ResourceNotFoundException;
 import com.optadata.patientmanager.model.Patient;
 import com.optadata.patientmanager.repository.PatientRepository;
-import com.optadata.patientmanager.tool.PatientConverter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -19,12 +18,11 @@ import java.util.Map;
 public class PatientService {
 
     private PatientRepository patientRepository;
-    private PatientConverter patientConverter;
 
-    public PatientService(PatientRepository patientRepository, PatientConverter patientConverter) {
+    public  PatientService(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
-        this.patientConverter = patientConverter;
     }
+
 
     public List<Patient> getAllPatient() {
         return patientRepository.findAll();
@@ -35,14 +33,25 @@ public class PatientService {
         if (patientRepository.existsByInsuranceNumber(patientDto.getInsuranceNumber())) {
             throw new PatientAlreadyExistsException("This patient with this insuranceNumber " + patientDto.getInsuranceNumber() + " is already existed !! ");
         }
-
-        Patient patient = patientConverter.patientDtoToPatient(patientDto);
+        Patient patient = new Patient();
+        patient.setFirstName(patientDto.getFirstName());
+        patient.setLastName(patientDto.getLastName());
+        patient.setDateOfBirth(patientDto.getDateOfBirth());
+        patient.setInsuranceNumber(patientDto.getInsuranceNumber());
+        patient.setHealthInsuranceName(patientDto.getHealthInsuranceName());
+        patient.setExpirationDate(patientDto.getExpirationDate());
+        patient.setInstitutionOfInsurance(patientDto.getInstitutionOfInsurance());
+        return patientRepository.save(patient);
+    }
+    public Patient savePatient2(Patient patient) throws PatientAlreadyExistsException {
+        if (patientRepository.existsByInsuranceNumber(patient.getInsuranceNumber())) {
+            throw new PatientAlreadyExistsException("This patient with this insuranceNumber " + patient.getInsuranceNumber() + " is already existed !! ");
+        }
         return patientRepository.save(patient);
     }
 
-    public ResponseEntity<PatientDto> getPatientById(long id) throws ResourceNotFoundException {
-        Patient patient = patientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("The Patient with id " + id + " is not exist !!"));
-        return ResponseEntity.ok(patientConverter.patientToPatientDto(patient));
+    public Patient getPatientById(long id) throws ResourceNotFoundException {
+        return patientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("The Patient with id " + id + " is not exist !!"));
     }
 
     public Patient updatePatient(long id, PatientDto patientDetails) throws PatientAlreadyExistsException, ResourceNotFoundException {
@@ -68,13 +77,13 @@ public class PatientService {
         return ResponseEntity.ok(response);
     }
 
-    public ResponseEntity<PatientDto> findPatientByInsuranceNumber(String insuranceNumber) {
+    public Patient findPatientByInsuranceNumber(String insuranceNumber) {
         if (!patientRepository.existsByInsuranceNumber(insuranceNumber)) {
             throw new ResourceNotFoundException("The patient with this insuranceNumber " + insuranceNumber + " is not exist ");
         }
         List<Patient> patients = patientRepository.findByInsuranceNumber(insuranceNumber);
         Patient patient = patients.size() != 0 ? patients.get(0) : null;
-        return ResponseEntity.ok(patientConverter.patientToPatientDto(patient));
+        return patient;
     }
 
     public boolean existsByInsuranceNumber(String insuranceNumber) {

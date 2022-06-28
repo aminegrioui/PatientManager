@@ -32,7 +32,7 @@ public class PatientController {
         return new ResponseEntity<>(patient, HttpStatus.CREATED);
     }
     @GetMapping("/{patientId}")
-    public ResponseEntity<PatientDto> getPatientById(@PathVariable long patientId){
+    public Patient getPatientById(@PathVariable long patientId){
         return patientService.getPatientById(patientId);
 
     }
@@ -46,7 +46,7 @@ public class PatientController {
         return patientService.deletePatient(patientId);
     }
     @GetMapping("/get/{insuranceNumber}")
-    public ResponseEntity<PatientDto> getPatientByInsuranceNumber(@PathVariable String insuranceNumber){
+    public Patient getPatientByInsuranceNumber(@PathVariable String insuranceNumber){
         return patientService.findPatientByInsuranceNumber(insuranceNumber);
     }
     @GetMapping("/get/exist/{insuranceNumber}")
