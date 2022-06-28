@@ -1,4 +1,4 @@
-# A spring boot webapplication to manage patients
+# Develop a web application to manage Patient card using spring boot Framework
 
 
 #  REST API with Spring Boot, Mysql, JPA and Hibernate 
