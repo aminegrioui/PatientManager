@@ -171,6 +171,7 @@ The app will start running at <http://localhost:8080>.
 ## Exceptions validation inputs 
 +  Validations:   dateOfBirth (must be in past or present), expirationDate(must be in future) , institutionOfInsurance(checksum)
 
+## Request
 `POST /api/v1/postPatient`
 
 ### body 
@@ -201,7 +202,8 @@ The app will start running at <http://localhost:8080>.
     ]
     }
  ## Exceptions patient already exist with a given insuranceNumber 
-
+ 
+ ## Request
 `POST /api/v1/postPatient`
 
 ### body 
@@ -220,3 +222,14 @@ The app will start running at <http://localhost:8080>.
     "message": "This patient with this insuranceNumber G123456784 is already existed !! ",
     "details": "uri=/api/v1/postPatient"
    }
+
+### Request
+
+`GET /api/v1/{patientId}`
+
+### Response
+      {
+    "timestamp": "2022-06-28T22:19:20.534+00:00",
+    "message": "The Patient with id 3 is not exist !!",
+    "details": "uri=/api/v1/3"
+     }
