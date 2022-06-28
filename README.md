@@ -64,7 +64,7 @@ To test these apis it will be used Postman
         "expirationDate": "2026-07-10"
     }
     ]
-## Create a new Thing
+## Create a Patient
 
 ### Request
 
@@ -94,12 +94,12 @@ To test these apis it will be used Postman
 }
 
     
-    GET /api/v1/{patientId}
 ## Update a patient
 
 ### Request
 
 `PUT /api/v1/{patientId}`
+
 #### Body 
 {
     "firstName": "Alex",
@@ -123,8 +123,3 @@ To test these apis it will be used Postman
     "institutionOfInsurance": 260326822,
     "expirationDate": "2026-07-10"
 }
-    PUT /api/v1/{patientId}
-    
-    DELETE /api/v1/{userId}
-    
-    GET /api/v1/get/{insuranceNumber}
