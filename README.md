@@ -91,7 +91,7 @@ To test these apis it will be used Postman
     "healthInsuranceName": "TK",
     "institutionOfInsurance": 260326822,
     "expirationDate": "2026-07-10"
-   }
+     }
 
     
 ## Update a patient
@@ -101,7 +101,7 @@ To test these apis it will be used Postman
 `PUT /api/v1/{patientId}`
 
 #### Body 
-{
+   {
     "firstName": "Alex",
     "lastName": "Schmitz",
     "dateOfBirth": "01.12.1970",
@@ -109,11 +109,11 @@ To test these apis it will be used Postman
     "healthInsuranceName": "TK",
     "institutionOfInsurance": 260326822,
     "expirationDate": "10.07.2026"
-}
+   }
 
 ### Response
 
-{
+    {
     "id": 1,
     "firstName": "Alaba",
     "lastName": "Schmit",
@@ -122,4 +122,4 @@ To test these apis it will be used Postman
     "healthInsuranceName": "TK",
     "institutionOfInsurance": 260326822,
     "expirationDate": "2026-07-10"
-}
+   }
