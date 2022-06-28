@@ -40,10 +40,30 @@ The app will start running at <http://localhost:8080>.
 
 ## Explore Rest APIs
 
-The app defines following CRUD APIs.
+The app defines following  APIs.
+To test these apis it will be used Postman
 
-    GET /api/v1/allPatients
-    
+## Get all patients
+
+### Request
+
+`GET /api/v1/allPatients`
+
+      GET /api/v1/allPatients
+      
+  ### Response
+    [
+    {
+        "id": 2,
+        "firstName": "Alex",
+        "lastName": "Schmitz",
+        "dateOfBirth": "1970-01-12",
+        "insuranceNumber": "F123456784",
+        "healthInsuranceName": "TK",
+        "institutionOfInsurance": 260326822,
+        "expirationDate": "2026-07-10"
+    }
+    ]
     POST /api/v1/postPatient
     
     GET /api/v1/{patientId}
