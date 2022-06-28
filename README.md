@@ -40,30 +40,9 @@ The app will start running at <http://localhost:8080>.
 
 ## Explore Rest APIs
 
-The app defines following  APIs.
-To test these apis it will be used Postman
++ The app defines following  APIs.
++ To test these apis it will be used Postman
 
-## Get all patients
-
-### Request
-
-`GET /api/v1/allPatients`
-
-      GET /api/v1/allPatients
-      
-  ### Response
-    [
-    {
-        "id": 2,
-        "firstName": "Alex",
-        "lastName": "Schmitz",
-        "dateOfBirth": "1970-01-12",
-        "insuranceNumber": "F123456784",
-        "healthInsuranceName": "TK",
-        "institutionOfInsurance": 260326822,
-        "expirationDate": "2026-07-10"
-    }
-    ]
 ## Create a Patient
 
 ### Request
@@ -93,6 +72,27 @@ To test these apis it will be used Postman
     "expirationDate": "2026-07-10"
      }
 
+## Get all patients
+
+### Request
+
+`GET /api/v1/allPatients`
+
+      GET /api/v1/allPatients
+      
+  ### Response
+    [
+    {
+        "id": 2,
+        "firstName": "Alex",
+        "lastName": "Schmitz",
+        "dateOfBirth": "1970-01-12",
+        "insuranceNumber": "F123456784",
+        "healthInsuranceName": "TK",
+        "institutionOfInsurance": 260326822,
+        "expirationDate": "2026-07-10"
+    }
+    ]
     
 ## Update a patient
 
