@@ -1,7 +1,20 @@
-# Develop a web application to manage Patient card using spring boot Framework
+# Develop a web application to manage patient card using spring boot Framework
 
 
-#  REST API with Spring Boot, Mysql, JPA and Hibernate 
+## Tools and technologies used
++ Spring Boot
++ JDK - 1.8 
++ Hibernate
++ Spring Data JPA
++ Validation
++ Hibernate
++ Junit test
++ Mockito
++ Maven
++ Intellij
++ Git
++ Github
++ ..
 
 ## Steps to Setup
 
