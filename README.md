@@ -222,12 +222,12 @@ The app will start running at <http://localhost:8080>.
         }
     ]
     }
- ### Exceptions patient already exist with a given insuranceNumber 
+## Exceptions patient already exist with a given insuranceNumber 
  
- ## Request
+ ### Request
 `POST /api/v1/postPatient`
 
-### body 
+ ### body 
      {
     "firstName": "Alex",
     "lastName": "Schmitz",
@@ -237,7 +237,7 @@ The app will start running at <http://localhost:8080>.
     "institutionOfInsurance": 260326824,
     "expirationDate": "10.07.2025"
    }
-### Response
+ ### Response
      {
     "timestamp": "2022-06-28T22:13:53.243+00:00",
     "message": "This patient with this insuranceNumber G123456784 is already existed !! ",
