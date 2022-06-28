@@ -69,16 +69,16 @@ To test these apis it will be used Postman
 ### Request
 
 `POST /api/v1/postPatient`
-#### Body 
-  {
-    "firstName": "Alex",
-    "lastName": "Schmitz",
-    "dateOfBirth": "01.12.1970",
-    "insuranceNumber": "G123456784",
-    "healthInsuranceName": "TK",
-    "institutionOfInsurance": 260326822,
-    "expirationDate": "10.07.2026"
-   }
+### Body 
+     {
+      "firstName": "Alex",
+      "lastName": "Schmitz",
+     "dateOfBirth": "01.12.1970",
+     "insuranceNumber": "G123456784",
+     "healthInsuranceName": "TK",
+      "institutionOfInsurance": 260326822,
+     "expirationDate": "10.07.2026"
+     }
 
 ### Response
 
@@ -101,7 +101,7 @@ To test these apis it will be used Postman
 `PUT /api/v1/{patientId}`
 
 #### Body 
-   {
+      {
     "firstName": "Alex",
     "lastName": "Schmitz",
     "dateOfBirth": "01.12.1970",
@@ -109,7 +109,7 @@ To test these apis it will be used Postman
     "healthInsuranceName": "TK",
     "institutionOfInsurance": 260326822,
     "expirationDate": "10.07.2026"
-   }
+     }
 
 ### Response
 
