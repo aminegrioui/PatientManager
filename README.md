@@ -83,7 +83,7 @@ The app will start running at <http://localhost:8080>.
   ### Response
     [
     {
-        "id": 2,
+        "id": 1,
         "firstName": "Alex",
         "lastName": "Schmitz",
         "dateOfBirth": "1970-01-12",
@@ -168,3 +168,55 @@ The app will start running at <http://localhost:8080>.
     "Deleted": true
     }
 
+## Exceptions validation inputs 
++  Validations:   dateOfBirth (must be in past or present), expirationDate(must be in future) , institutionOfInsurance(checksum)
+
+`POST /api/v1/postPatient`
+
+### body 
+     {
+    "firstName": "Alex",
+    "lastName": "Schmitz",
+    "dateOfBirth": "01.12.2023",
+    "insuranceNumber": "T123456784",
+    "healthInsuranceName": "TK",
+    "institutionOfInsurance": 260326824,
+    "expirationDate": "10.07.2020"
+   }
+### Response
+      {
+    "violations": [
+        {
+            "fieldName": "expirationDate",
+            "message": "Expiration date must be in future"
+        },
+        {
+            "fieldName": "dateOfBirth",
+            "message": "Date of birth must be in past or present"
+        },
+        {
+            "fieldName": "institutionOfInsurance",
+            "message": "Invalid InstitutionOfInsurance"
+        }
+    ]
+    }
+ ## Exceptions patient already exist with a given insuranceNumber 
+
+`POST /api/v1/postPatient`
+
+### body 
+     {
+    "firstName": "Alex",
+    "lastName": "Schmitz",
+    "dateOfBirth": "01.12.1970",
+    "insuranceNumber": "G123456784",
+    "healthInsuranceName": "TK",
+    "institutionOfInsurance": 260326824,
+    "expirationDate": "10.07.2025"
+   }
+### Response
+     {
+    "timestamp": "2022-06-28T22:13:53.243+00:00",
+    "message": "This patient with this insuranceNumber G123456784 is already existed !! ",
+    "details": "uri=/api/v1/postPatient"
+   }
