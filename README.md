@@ -8,7 +8,7 @@
 **1. Clone the application**
 
 ```bash
-https://github.com/givanthak/spring-boot-rest-api-tutorial.git
+https://github.com/aminegrioui/PatientManager.git
 ```
 
 **2. Create Mysql database**
