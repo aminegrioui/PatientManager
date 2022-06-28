@@ -102,8 +102,8 @@ To test these apis it will be used Postman
 
 #### Body 
       {
-    "firstName": "Alex",
-    "lastName": "Schmitz",
+    "firstName": "Alaba",
+    "lastName": "Schmit",
     "dateOfBirth": "01.12.1970",
     "insuranceNumber": "G123456784",
     "healthInsuranceName": "TK",
@@ -123,3 +123,48 @@ To test these apis it will be used Postman
     "institutionOfInsurance": 260326822,
     "expirationDate": "2026-07-10"
    }
+   
+### Request
+
+`GET /api/v1/{patientId}`
+
+### Response
+
+    {
+    "id": 1,
+    "firstName": "Alaba",
+    "lastName": "Schmit",
+    "dateOfBirth": "1970-12-01",
+    "insuranceNumber": "G123456784",
+    "healthInsuranceName": "TK",
+    "institutionOfInsurance": 260326822,
+    "expirationDate": "2026-07-10"
+   }
+
+### Request
+
+`GET /api/v1/get/{insuranceNumber}`
+
+### Response
+
+    {
+    "id": 1,
+    "firstName": "Alaba",
+    "lastName": "Schmit",
+    "dateOfBirth": "1970-12-01",
+    "insuranceNumber": "G123456784",
+    "healthInsuranceName": "TK",
+    "institutionOfInsurance": 260326822,
+    "expirationDate": "2026-07-10"
+   }
+   
+ ### Request
+
+`DELETE /api/v1/{patientId}`
+
+### Response
+
+    {
+    "Deleted": true
+    }
+
